@@ -27,18 +27,18 @@ VALUES ("Digital Food Scale", "Home & Kitchen", 12.50, 100);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("Yamaha HS7 Studio Monitor", "Musical Instrument", 300, 50);
--- finish books
-INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("JBL Clip", "Electronics", 40, 100);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("20000Mah Power Bank", "Cell Phones & Accessories", 70, 100);
+VALUES ("Echo Dot", "Electronics", 40, 200);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Digital Food Scale", "Home & Kitchen", 12.50, 100);
+VALUES ("Oral B Electric Toothbrush", "Electronics", 110, 200);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("20000Mah Power Bank", "Cell Phones & Accessories", 70, 100);
+VALUES ("LED Desk Lamp", "Electronics", 30, 100);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Digital Food Scale", "Home & Kitchen", 12.50, 100);
+VALUES ("Samsung MicroSD Card", "Computer Accessories", 70, 100);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("Apple Certified Lightning Cable", "Cell Phones & Accessories", 12.50, 100);
