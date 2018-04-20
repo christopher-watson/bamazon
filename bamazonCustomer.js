@@ -99,8 +99,7 @@ function buyProduct() {
             ],
             function (err) {
               if (err) throw err;
-              // console.log("\nAn Error Has Occured\n")
-              // console.log(err);
+
             }
           )
           var totalPrice = parseInt(answer.chooseAmt * itemPicked.price);
