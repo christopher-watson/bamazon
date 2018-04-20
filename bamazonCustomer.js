@@ -16,7 +16,6 @@ connection.connect(function (err) {
   console.log("Welcome to Bamazon!");
   console.log("-------------------\n");
   itemList();
-  buyProduct();
 });
 
 function itemList() {
@@ -28,7 +27,28 @@ function itemList() {
     }
     console.log("------------------------------------------------------\n");
   });
+  buyProduct();
 };
+
+function newItem(){
+  inquirer
+  .prompt([
+    {
+      type: "confirm",
+      message: "Would you like to purchase another product?",
+      name: "confirm",
+      default: true
+    }
+  ])
+  .then(function(response) {
+    if (response.confirm) {
+      itemList();
+    }
+    else {
+      console.log("\nThanks for shopping at bamazon!\n");
+    }
+  });
+}
 
 function buyProduct() {
   connection.query("SELECT * FROM products", function (err, res) {
@@ -64,7 +84,7 @@ function buyProduct() {
       ])
       .then(function (answer) {
         var itemPicked;
-        console.log(res[answer.chooseProduct-1].product_name);
+        console.log("\nYou've selected " + res[answer.chooseProduct-1].product_name + " (x" + answer.chooseAmt + ")");
         itemPicked = res[answer.chooseProduct-1];
         if (itemPicked.stock_quantity > parseInt(answer.chooseAmt)) {
           var newQuantity = itemPicked.stock_quantity - parseInt(answer.chooseAmt);
@@ -79,16 +99,18 @@ function buyProduct() {
             ],
             function (err) {
               if (err) throw err;
-              console.log("\nAn Error Has Occured\n")
-              console.log(err);
+              // console.log("\nAn Error Has Occured\n")
+              // console.log(err);
             }
           )
+          var totalPrice = parseInt(answer.chooseAmt * itemPicked.price);
+          console.log("\nYour Total Price: $" + totalPrice + "\n");
+          newItem();
         }
         else{
           console.log("\nInsufficient Quantity!\n");
+          newItem();
         }
-        var totalPrice = parseInt(answer.chooseAmt * itemPicked.price);
-        console.log("Your Total Price: $" + totalPrice);
       });
   });
 }
