@@ -21,7 +21,7 @@ The user can perform the following tasks in the Bamazon app:
 
 1. Clone the bamazon repository
 1. run `npm install` at folder location to install dependencies
-1. run `bamazonDB.sql` to initiate database
+1. open `bamazonDB.sql` to initialize database
 1. run `node bamazonCustomer.js` for customer interface
 1. run `node bamazonManager.js` for manager interface
 
@@ -29,16 +29,29 @@ The user can perform the following tasks in the Bamazon app:
 
 _Display Products & Place Order_
 
-![Display Products and Place Order]
-(https://github.com/christopher-watson/bamazon/blob/master/gifs/bamCust-placeOrder.gif)
+![Display Products and Place Order](https://github.com/christopher-watson/bamazon/blob/master/gifs/bamCust-placeOrder.gif?raw=true)
+
 
 _Place Order with Insufficient Quantity_
 
-![Place Order with Insufficient Quantity]
-(https://github.com/christopher-watson/bamazon/blob/master/gifs/bamCust-InsufQuan.gif)
+![Place Order with Insufficient Quantity](http://github.com/christopher-watson/bamazon/blob/master/gifs/bamCust-InsufQuan.gif?raw=true)
+
 
 _Manager View of Prodcuts_
 
-![Manager View of Products]
-(https://github.com/christopher-watson/bamazon/blob/master/gifs/bamMan-viewProd.gif)
+![Manager View of Products](https://github.com/christopher-watson/bamazon/blob/master/gifs/bamMan-viewProd.gif?raw=true)
 
+
+_Manager View Low Inventory_
+
+![Manager View Low Inventory](https://github.com/christopher-watson/bamazon/blob/master/gifs/bamMan-lowInventory.gif?raw=true)
+
+
+_Manager add Inventory_
+
+![Manager Add Inventory](https://github.com/christopher-watson/bamazon/blob/master/gifs/bamMan-addInventory.gif?raw=true)
+
+
+_Manager add Product_
+
+![Manager Add Product](https://github.com/christopher-watson/bamazon/blob/master/gifs/bamMan-addProd.gif?raw=true)
