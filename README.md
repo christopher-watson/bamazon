@@ -29,7 +29,7 @@ The user can perform the following tasks in the Bamazon app:
 
 _Display Products & Place Order_
 
-![Display Products and Place Order](https://github.com/christopher-watson/bamazon/blob/master/gifs/bamCust-placeOrder.gif?raw=true)
+![Display Products and Place Order](https://github.com/christopher-watson/bamazon/blob/master/gifs/bamCust-placeOrder.gif?raw=)
 
 
 _Place Order with Insufficient Quantity_
