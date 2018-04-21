@@ -87,7 +87,7 @@ function buyProduct() {
         var itemPicked;
         console.log("\nYou've selected " + res[answer.chooseProduct-1].product_name + " (x" + answer.chooseAmt + ")");
         itemPicked = res[answer.chooseProduct-1];
-        if (itemPicked.stock_quantity > parseInt(answer.chooseAmt)) {
+        if (itemPicked.stock_quantity >= parseInt(answer.chooseAmt)) {
           var newQuantity = itemPicked.stock_quantity - parseInt(answer.chooseAmt);
           connection.query(
             "UPDATE products SET ? WHERE ?", [
