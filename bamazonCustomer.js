@@ -46,6 +46,7 @@ function newItem(){
     }
     else {
       console.log("\nThanks for shopping at bamazon!\n");
+      console.log("Press ^C to Exit");
     }
   });
 }

@@ -23,22 +23,35 @@ function menu() {
     .prompt([{
       type: "list",
       message: "Manager Options",
-      choices: ["View Products on Sale", "View Low Inventory", "Add to Inventory", "Add New Product"],
+      choices: ["View Products on Sale", "View Low Inventory", "Add to Inventory", "Add New Product", "Exit"],
       name: "menuOptions",
       default: 0
     }])
     .then(function (response) {
-      if (response.menuOptions === "View Products on Sale") {
-        itemList();
-      } else if (response.menuOptions === "View Low Inventory") {
-        lowInventory();
-      } else if (response.menuOptions === "Add to Inventory") {
-        addInventory();
-      } else if (response.menuOptions === "Add New Product") {
-        addProduct();
-      } else {
-        console.log("Please choose one of the menu items");
-        // menu();
+      switch (response.menuOptions) {
+        case "View Products on Sale":
+          itemList();
+          break;
+
+        case "View Low Inventory":
+          lowInventory();
+          break;
+
+        case "Add to Inventory":
+          addInventory();
+          break;
+
+        case "Add New Product":
+          addProduct();
+          break;
+
+        case "Exit":
+          exit();
+          break;
+
+        default:
+          console.log("Please choose one of the menu items");
+          menu();
       }
     });
 }
@@ -110,9 +123,9 @@ function addInventory() {
             itemPicked = res[i];
             flagged = true;
             newStock = parseInt(answer.inventoryAdded) + parseInt(itemPicked.stock_quantity);
-          } 
+          }
         }
-        if (flagged){
+        if (flagged) {
           connection.query(
             "UPDATE products SET ? WHERE ?", [{
                 stock_quantity: newStock
@@ -134,58 +147,62 @@ function addInventory() {
 
 function addProduct() {
   inquirer
-  .prompt([{
-      type: "input",
-      message: "Enter the NAME of the product",
-      name: "productName"
-    },
-    {
-      type: "input",
-      message: "Enter the DEPARTMENT for the product",
-      name: "productDept"
-    },
-    {
-      type: "input",
-      message: "Enter a PRICE for the product",
-      name: "productPrice",
-      default: 0,
-      validate: function (value) {
-        var num = parseInt(value);
-        if (!isNaN(num) && num >= 0) {
-          return true;
-        } else {
-          return ('Invalid Number');
-        }
-      }
-    },
-    {
-      type: "input",
-      message: "Enter a QUANTITY for the product",
-      name: "productQuant",
-      default: 100,
-      validate: function (value) {
-        var num = parseInt(value);
-        if (!isNaN(num) && num >= 0) {
-          return true;
-        } else {
-          return ('Invalid Number');
-        }
-      }
-    }
-  ])
-  .then(function (response) {
-    connection.query(
-      "INSERT INTO products SET ?", {
-        product_name: response.productName,
-        department_name: response.productDept,
-        price: response.productPrice,
-        stock_quantity: response.productQuant
+    .prompt([{
+        type: "input",
+        message: "Enter the NAME of the product",
+        name: "productName"
       },
-      function (err, res) {
-        if (err) throw err;
-        console.log("\n" + response.productName + " has been added!\n")
-        menu();
+      {
+        type: "input",
+        message: "Enter the DEPARTMENT for the product",
+        name: "productDept"
+      },
+      {
+        type: "input",
+        message: "Enter a PRICE for the product",
+        name: "productPrice",
+        default: 0,
+        validate: function (value) {
+          var num = parseInt(value);
+          if (!isNaN(num) && num >= 0) {
+            return true;
+          } else {
+            return ('Invalid Number');
+          }
+        }
+      },
+      {
+        type: "input",
+        message: "Enter a QUANTITY for the product",
+        name: "productQuant",
+        default: 100,
+        validate: function (value) {
+          var num = parseInt(value);
+          if (!isNaN(num) && num >= 0) {
+            return true;
+          } else {
+            return ('Invalid Number');
+          }
+        }
       }
-    )
-  });
+    ])
+    .then(function (response) {
+      connection.query(
+        "INSERT INTO products SET ?", {
+          product_name: response.productName,
+          department_name: response.productDept,
+          price: response.productPrice,
+          stock_quantity: response.productQuant
+        },
+        function (err, res) {
+          if (err) throw err;
+          console.log("\n" + response.productName + " has been added!\n")
+          menu();
+        }
+      )
+    });
+}
+
+function exit(){
+  console.log("Bye! (Press ^C to Exit)")
 }
