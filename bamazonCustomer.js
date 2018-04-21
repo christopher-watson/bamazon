@@ -59,9 +59,9 @@ function buyProduct() {
           type: "input",
           message: "What item would you like to purchase?(Enter Product ID)",
           name: "chooseProduct",
-          choices: function (value) {
+          validate: function (value) {
             var num = parseInt(value);
-            if (!isNaN(num) && num > 0 && num <= (res.length + 1)) {
+            if (!isNaN(num) && num > 0 && num <= (res.length)) {
               return true;
             } else {
               return ('Invalid Number');
