@@ -34,7 +34,7 @@ _Display Products & Place Order_
 
 _Place Order with Insufficient Quantity_
 
-![Place Order with Insufficient Quantity](http://github.com/christopher-watson/bamazon/blob/master/gifs/bamCust-InsufQuan.gif?raw=true)
+![Place Order with Insufficient Quantity](https://github.com/christopher-watson/bamazon/blob/master/gifs/bamCust-InsufQuan.gif?raw=true)
 
 
 _Manager View of Prodcuts_
