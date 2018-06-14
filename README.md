@@ -1,6 +1,6 @@
 # bamazon
 
-by Christopher Watson
+_Christopher Watson_
 
 An ecommerce node application
 
